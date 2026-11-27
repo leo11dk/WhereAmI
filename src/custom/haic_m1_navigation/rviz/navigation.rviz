@@ -1,0 +1,83 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Global Options:
+    Fixed Frame: map
+    Background Color: 30; 35; 42
+    Frame Rate: 15
+  Displays:
+    - Class: rviz_default_plugins/Map
+      Name: Live occupancy map
+      Enabled: true
+      Topic:
+        Value: /map
+        Reliability Policy: Reliable
+        Durability Policy: Transient Local
+        History Policy: Keep Last
+        Depth: 1
+    - Class: rviz_default_plugins/LaserScan
+      Name: Wall scan
+      Enabled: true
+      Topic:
+        Value: /scan
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        Depth: 5
+      Size (m): 0.05
+      Style: Points
+      Color Transformer: FlatColor
+      Color: 255; 90; 90
+      Position Transformer: XYZ
+      Queue Size: 10
+    - Class: rviz_default_plugins/Path
+      Name: Navigation path
+      Enabled: true
+      Topic:
+        Value: /haic/navigation_path
+        Reliability Policy: Reliable
+        Durability Policy: Transient Local
+        Depth: 1
+      Line Style: Lines
+      Line Width: 0.04
+      Color: 90; 220; 150
+    - Class: rviz_default_plugins/Axes
+      Name: Robot (pelvis)
+      Enabled: true
+      Reference Frame: pelvis
+      Length: 0.7
+      Radius: 0.05
+    - Class: rviz_default_plugins/TF
+      Name: Frames
+      Enabled: false
+      Show Names: true
+      Show Axes: true
+      Show Arrows: true
+      Marker Scale: 0.25
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/SetInitialPose
+      Topic:
+        Value: /initialpose
+        Reliability Policy: Reliable
+        Durability Policy: Volatile
+        Depth: 5
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Value: /goal_pose
+        Reliability Policy: Reliable
+        Durability Policy: Volatile
+        Depth: 5
+  Views:
+    Current:
+      Class: rviz_default_plugins/TopDownOrtho
+      Scale: 30
+      Target Frame: pelvis
+      X: 0
+      Y: 0
+Window Geometry:
+  Width: 1200
+  Height: 800

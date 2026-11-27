@@ -1,1 +1,4 @@
 # Mission Python dependencies, one per line. Apply with setup/install_conda_env.sh.
+numpy>=1.21,<2
+scipy>=1.8
+PyYAML>=6.0

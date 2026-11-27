@@ -1,0 +1,68 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Global Options:
+    Background Color: 30; 35; 42
+    Fixed Frame: haic_lidar_level
+    Frame Rate: 15
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Local grid at LiDAR height
+      Enabled: true
+      Cell Size: 1
+      Plane Cell Count: 30
+      Reference Frame: <Fixed Frame>
+    - Class: rviz_default_plugins/PointCloud2
+      Name: Level cloud
+      Enabled: true
+      Topic:
+        Value: /haic/lidar/points_level
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 5
+      Size (m): 0.025
+      Style: Points
+      Position Transformer: XYZ
+      Color Transformer: AxisColor
+      Axis: Z
+      Decay Time: 0
+      Queue Size: 5
+    - Class: rviz_default_plugins/LaserScan
+      Name: Wall scan
+      Enabled: true
+      Topic:
+        Value: /scan
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 5
+      Size (m): 0.05
+      Style: Points
+      Color Transformer: FlatColor
+      Color: 255; 90; 90
+      Position Transformer: XYZ
+      Decay Time: 0
+      Queue Size: 5
+    - Class: rviz_default_plugins/TF
+      Name: Frames
+      Enabled: true
+      Show Names: true
+      Show Arrows: true
+      Show Axes: true
+      Marker Scale: 0.25
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 14
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: -0.7
+      Pitch: 1.0
+      Yaw: 0.5
+Window Geometry:
+  Width: 1200
+  Height: 800

@@ -1,0 +1,35 @@
+haic_sensor_preprocess:
+  ros__parameters:
+    use_sim_time: true
+    cloud_topic: /lidar/points
+    imu_topic: /lidar/imu
+    cloud_frame: lidar_link
+    imu_frame: imu_link
+    level_frame: haic_lidar_level
+    scan_topic: /scan
+    level_cloud_topic: /haic/lidar/points_level
+    scan_bins: 720
+    range_min_m: 0.30
+    range_max_m: 30.0
+    # Heights RELATIVE TO THE LIDAR ORIGIN, after estimated tilt removal.
+    # This narrow band is for wall-based mapping, not foot-level collision safety.
+    min_height_m: -0.15
+    max_height_m: 0.15
+    calibration_sec: 1.0
+    tilt_tau_sec: 2.0
+    gravity_mps2: 9.81
+    accel_tolerance_mps2: 1.5
+    calibration_gyro_limit_rps: 0.30
+    calibration_accel_std_limit: 0.8
+    max_imu_gap_sec: 0.20
+    max_imu_cloud_skew_sec: 0.08
+    max_wall_input_age_sec: 3.0
+    max_tilt_deg: 50.0
+
+haic_sensor_check:
+  ros__parameters:
+    use_sim_time: true
+    report_period_sec: 2.0
+    stale_wall_sec: 3.0
+    stale_sim_sec: 0.5
+    rate_window_wall_sec: 4.0
